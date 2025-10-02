@@ -5,7 +5,7 @@ Acest proiect implementează un algoritm de **generare și optimizare a orarului
 Am utilizat **algoritmul Hill Climbing (varianta Stochastic)** pentru a minimiza numărul de conflicte, generând soluții cât mai apropiate de cost 0. Rezultatul este un orar care respectă toate constrângerile hard și optimizează cât mai bine constrângerile soft.
 
 **1.	Reprezentarea starilor**  
-1.1.	Algoritmul Hill Climbing
+1.1.	Algoritmul Hill Climbing  
 Pentru a reprezenta starile am imprementat o clasa ‘TimetableState’. Aceasta contine:
 -	informatii extrase din fisierul de intrare (intervale, materii, profesori, zile, sali de curs) sub forma de dictionare stucturate exact ca in fisier;
 -	un dictionar de forma: ‘nume profesor : zi a saptamanii : lista de intervale’ pentru a retine programul profesorilor;
@@ -13,12 +13,12 @@ Pentru a reprezenta starile am imprementat o clasa ‘TimetableState’. Aceasta
 -	o varianta curenta a orarului, reprezentat printr-un dictionar cu structura din enunt.
 
 **2.	Reprezentarea restrictiilor hard**  
-2.1.	Algoritmul Hill Climbing
+2.1.	Algoritmul Hill Climbing  
 Pentru rezolvarea acestei teme, am ales sa generez o stare initiala in care asigur acoperirea tuturor materiilor, precum si satisfacerea tututror celorlalte restrictii hard. Apoi aplic algoritmul HC pentru a genera o solutie de cost minim dpdv restrictii soft, totodata asigurandu-ma ca nu compromit satisfacerea restrictiilor hard.
 Asadar o parte din restrictiile hard sunt verificate explicit cu functia ‘check_hard_constraints’, unde ma folosesc de dictionarul ‘professors_programs’ (verific 2 constrangeri). Celelalte sunt verificate implicit in functiile ‘generate_timetable’  si ‘get_next_states’ pentru a optimiza procesul de generare a vecinilor (de exemplu, cand incerc sa pun/mut o materie intr-un interval si parcurg toti profesorii, voi merge mai departe doar cu cei care predau materia respectiva)
 
-**3.	Reprezentarea restrictiilor soft**
-3.1.	Algoritmul Hill Climbing
+**3.	Reprezentarea restrictiilor soft**  
+3.1.	Algoritmul Hill Climbing  
 Restrictiile soft sunt verificate cu ajutorul dictionarului ‘professors’ de unde preiau preferintele profesorilor si dictionarului ‘professors_programs’ unde retin programul curent pentru fiecare dintre acestia.
 In functia ‘count_soft_constraints’ calculez numarul de constrangeri soft incalcate de starea curenta, comparand informatiile din cele 2 dictionare mentionate.
 In functia ‘get_next_states’ verifc direct daca o mutare incalca sau nu o constrangere soft, de asemenea, prin compararea celor 2 dictionare.
