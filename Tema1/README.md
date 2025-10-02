@@ -1,5 +1,4 @@
 # Timetable Optimization using Hill Climbing
-ANA Elena-Diana, 331CB
 
 Acest proiect implementează un algoritm de **generare și optimizare a orarului universitar** pe baza unor seturi de profesori, materii, săli și intervale orare, respectând atât **restricții hard** (fără suprapuneri, profesori disponibili doar pe materiile lor, săli suficiente etc.) cât și **restricții soft** (preferințele profesorilor pentru zile/intervale).  
 
